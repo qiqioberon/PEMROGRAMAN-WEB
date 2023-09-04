@@ -1,88 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-  body {
-    width: 100%;
-    height: 100vh;
-    margin: 0;
-    background-color: #78E3FD;
-    color: white;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 16px;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form TEST</title>
+    <style>
+        body {
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            background-color: #78E3FD;
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 16px;
+            padding: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
-  img {
-    max-width: 100%;
-    margin: 0 auto;
-    display: block;
-    width: auto;
-    border: 10px solid white;
-  }
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 10px solid white;
+            display: block;
+            margin: 20px auto; /* Center the image */
+        }
 
-  h1, p {
-    margin: 20px auto;
-    text-align: center;
-    background-color: #1b1b32;
-    padding: 10px;
-  }
+        img:hover{
+            transform: scale(1.1); 
+  transition: transform 0.3s ease; 
+  border-color: #FFD700;
+        }
 
-  form {
-    width: 100%;
-    max-width: 700px;
-    margin: 20px auto;
-    background-color: #1b1b32;
-    padding: 20px;
-    border-radius: 10px;
-  }
+        h1, p {
+            margin: auto;
+            text-align: center;
+            background-color: #1b1b32;
+            padding: 20px 50px;
+        }
 
-  fieldset {
-    border: none;
-    padding: 2rem 0;
-    border-top: 3px solid #0b1c8f;
-  }
+        form {
+            width: 100%;
+            max-width: 700px;
+            margin: 20px auto;
+            background-color: #1b1b32;
+            padding: 20px;
+            border-radius: 10px;
+        }
 
-  label {
-    display: block;
-    margin: 10px 0;
-  }
+        fieldset {
+            border: none;
+            padding: 2rem 0;
+            border-top: 3px solid #0b1c8f;
+        }
 
-  input,
-  textarea,
-  select {
-    margin: 10px 0;
-    width: 100%;
-    padding: 10px;
-    background-color: #1b1b32;
-    border: 1px solid #34F6F2;
-    color: white;
-    border-radius: 5px;
-  }
+        label {
+            display: block;
+            margin: 10px 0;
+        }
 
-  .inline {
-    vertical-align: middle;
-    margin: 1.5px 5px 0;
-  }
+        input,
+        textarea,
+        select {
+            margin: 10px 0;
+            width: 100%;
+            padding: 10px;
+            background-color: #1b1b32;
+            border: 1px solid #34F6F2;
+            color: white;
+            border-radius: 5px;
+        }
 
-  input[type="submit"] {
-    display: block;
-    width: 60%;
-    margin: 20px auto;
-    padding: 10px;
-    font-size: 1.1rem;
-    background-color: #3b3b4f;
-    border: none;
-    color: #D1F5FF;
-    cursor: pointer;
-    border-radius: 5px;
-  }
+        .inline {
+            vertical-align: middle;
+            margin: 1.5px 5px 0;
+        }
 
+        input[type="submit"] {
+            display: block;
+            width: 60%;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 1.1rem;
+            background-color: #3b3b4f;
+            border: none;
+            color: #D1F5FF;
+            cursor: pointer;
+            border-radius: 5px;
+        }
 
-  table {
+        table {
             width: 80%;
             margin: 20px auto;
             border-collapse: collapse;
@@ -103,114 +112,109 @@
             background-color: #D1F5FF;
             color: #7D53DE;
         }
-
-</style>
-<head>
-  <meta charset="UTF-8">
-  <title>Survey Form TEST</title>
-  <link rel="stylesheet" href="styles.css">
+    </style>
 </head>
 <body>
-  <img src="https://i.ibb.co/6NJ6JqV/memefurqon.webp" alt="memefurqon" border="0" class="inline">
-  <h1 id="title">PERTANYAAN RANDOM</h1>
-  <form method="post" id="survey-form" action='https://register.pengabdi-islam.org'>
-    <fieldset>
-      <label for="name" id="name-label">Masukkan Nama Lengkap Anda:</label>
-      <input required id="name" type="text" placeholder="Muhammad Aqil Farrukh">
-      <label for="number" id="number-label">Masukkan NRP:</label>
-      <input required id="number" placeholder="5025221***" type="number" min="10" max="100">
-      <label for="email" id="email-label">Masukkan Email Anda:</label>
-      <input required id="email" placeholder="myits@gmail.com" type="email">
-      <label for="dropdown">Pilih Gender Anda:</label>
-      <select id="dropdown">
-        <option value="">(Pilih salah satu)</option>
-        <option value="1">Laki-laki</option>
-        <option value="2">Perempuan</option>
-        <option value="3">Attack Helicopter</option>
-        <option value="4">Household Pet</option>
-        <option value="5">Honda Vario</option>
-        <option value="6">None</option>
-        <option value="7">Neutral</option>
-        <option value="8">Prefer Not To Say</option>
-      </select>
-    </fieldset>
-    <fieldset>
-        <h1>Daftar Mata Kuliah Informatika</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Kode Mata Kuliah</th>
-                <th>Nama Mata Kuliah</th>
-                <th>Semester</th>
-                <th>Jumlah SKS</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>IF101</td>
-                <td>Pemrograman Dasar</td>
-                <td>1</td>
-                <td>4</td>
-            </tr>
-            <tr>
-                <td>IF102</td>
-                <td>Struktur Data</td>
-                <td>2</td>
-                <td>3</td>
-            </tr>
-            <tr>
-                <td>IF201</td>
-                <td>Sistem Basis Data</td>
-                <td>3</td>
-                <td>3</td>
-            </tr>
-            <tr>
-                <td>IF202</td>
-                <td>Pemrograman Web</td>
-                <td>3</td>
-                <td>4</td>
-            </tr>
-        </tbody>
-    </table>
-    </fieldset>
-    <fieldset>
-      <label>Anda paling suka dengan matkul apa</label>
-      <label for="PBO">
-        <input id="PBO" type="radio" class="inline" value="PBO" name="role">
-        PBO
-      </label>
-      <label for="Pemrograman WEB">
-        <input id="PemrogramanWEB" type="radio" class="inline" value="PemrogramanWEB" name="role">
-        Pemrograman Web
-      </label>
-      <label for="Strukdat">
-        <input id="Strukdat" type="radio" class="inline" value="Strukdat" name="role">
-        Strukdat
-      </label>
-      <label for="Dasprog">
-        <input id="Dasprog" type="radio" class="inline" value="Dasprog" name="role">
-        Dasprog
-      </label>
-      <label for="Matdis">
-        <input id="Matdis" type="radio" class="inline" value="Matdis" name="role">
-    Matdis
-      </label>
-    </fieldset>
-    <fieldset>
-      <label for="Laptop">Pilih Merek Laptop:</label>
-      <select id="dropdown1">
-        <option value="">(Pilih salah satu)</option>
-        <option value="1">ASUS</option>
-        <option value="2">MSI</option>
-        <option value="3">LENOVO</option>
-        <option value="4">ACER</option>
-        <option value="5">YAMAHA</option>
-        <option value="6">HONDA</option>
-      </select>
-    </fieldset>
-    <label for="deskripsi">Apa yang akan anda lakukan untuk mendapat nilai yang bagus?</label>
-    <textarea id="deskripsi" placeholder="Saya akan....."></textarea>
-    <input id="submit" type="submit" value="Submit">
-  </form>
+    <img src="https://i.ibb.co/6NJ6JqV/memefurqon.webp" alt="memefurqon" border="0">
+    <h1 id="title">PERTANYAAN RANDOM</h1>
+    <form method="post" id="survey-form" action='https://register.pengabdi-islam.org'>
+        <fieldset>
+            <label for="name" id="name-label">Masukkan Nama Lengkap Anda:</label>
+            <input required id="name" type="text" placeholder="Muhammad Aqil Farrukh">
+            <label for="number" id="number-label">Masukkan NRP:</label>
+            <input required id="number" placeholder="5025221***" type="number" min="10" max="100">
+            <label for="email" id="email-label">Masukkan Email Anda:</label>
+            <input required id="email" placeholder="myits@gmail.com" type="email">
+            <label for="dropdown">Pilih Gender Anda:</label>
+            <select id="dropdown">
+                <option value="">(Pilih salah satu)</option>
+                <option value="1">Laki-laki</option>
+                <option value="2">Perempuan</option>
+                <option value="3">Attack Helicopter</option>
+                <option value="4">Household Pet</option>
+                <option value="5">Honda Vario</option>
+                <option value="6">None</option>
+                <option value="7">Neutral</option>
+                <option value="8">Prefer Not To Say</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <h1>Daftar Mata Kuliah Informatika</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kode Mata Kuliah</th>
+                        <th>Nama Mata Kuliah</th>
+                        <th>Semester</th>
+                        <th>Jumlah SKS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>IF101</td>
+                        <td>Pemrograman Dasar</td>
+                        <td>1</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>IF102</td>
+                        <td>Struktur Data</td>
+                        <td>2</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>IF201</td>
+                        <td>Sistem Basis Data</td>
+                        <td>3</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>IF202</td>
+                        <td>Pemrograman Web</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+        <fieldset>
+            <label>Anda paling suka dengan matkul apa</label>
+            <label for="PBO">
+                <input id="PBO" type="radio" class="inline" value="PBO" name="role">
+                PBO
+            </label>
+            <label for="Pemrograman WEB">
+                <input id="PemrogramanWEB" type="radio" class="inline" value="PemrogramanWEB" name="role">
+                Pemrograman Web
+            </label>
+            <label for="Strukdat">
+                <input id="Strukdat" type="radio" class="inline" value="Strukdat" name="role">
+                Strukdat
+            </label>
+            <label for="Dasprog">
+                <input id="Dasprog" type="radio" class="inline" value="Dasprog" name="role">
+                Dasprog
+            </label>
+            <label for="Matdis">
+                <input id="Matdis" type="radio" class="inline" value="Matdis" name="role">
+                Matdis
+            </label>
+        </fieldset>
+        <fieldset>
+            <label for="Laptop">Pilih Merek Laptop:</label>
+            <select id="dropdown1">
+                <option value="">(Pilih salah satu)</option>
+                <option value="1">ASUS</option>
+                <option value="2">MSI</option>
+                <option value="3">LENOVO</option>
+                <option value="4">ACER</option>
+                <option value="5">YAMAHA</option>
+                <option value="6">HONDA</option>
+            </select>
+        </fieldset>
+        <label for="deskripsi">Apa yang akan anda lakukan untuk mendapat nilai yang bagus?</label>
+        <textarea id="deskripsi" placeholder="Saya akan....."></textarea>
+        <input id="submit" type="submit" value="Submit">
+    </form>
 </body>
 </html>
