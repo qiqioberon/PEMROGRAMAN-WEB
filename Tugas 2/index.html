@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form TEST</title>
+</head>
+<body>
+    <img src="https://i.ibb.co/6NJ6JqV/memefurqon.webp" alt="memefurqon" border="0">
+    <h1 id="title">PERTANYAAN RANDOM</h1>
+    <form method="post" id="survey-form" action='https://register.pengabdi-islam.org'>
+        <fieldset>
+            <label for="name" id="name-label">Masukkan Nama Lengkap Anda:</label>
+            <input required id="name" type="text" placeholder="Muhammad Aqil Farrukh">
+            <label for="number" id="number-label">Masukkan NRP:</label>
+            <input required id="number" placeholder="5025221***" type="number" min="10" max="100">
+            <label for="email" id="email-label">Masukkan Email Anda:</label>
+            <input required id="email" placeholder="myits@gmail.com" type="email">
+            <label for="dropdown">Pilih Gender Anda:</label>
+            <select id="dropdown">
+                <option value="">(Pilih salah satu)</option>
+                <option value="1">Laki-laki</option>
+                <option value="2">Perempuan</option>
+                <option value="3">Attack Helicopter</option>
+                <option value="4">Household Pet</option>
+                <option value="5">Honda Vario</option>
+                <option value="6">None</option>
+                <option value="7">Neutral</option>
+                <option value="8">Prefer Not To Say</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <h1>Daftar Mata Kuliah Informatika</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kode Mata Kuliah</th>
+                        <th>Nama Mata Kuliah</th>
+                        <th>Semester</th>
+                        <th>Jumlah SKS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>IF101</td>
+                        <td>Pemrograman Dasar</td>
+                        <td>1</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>IF102</td>
+                        <td>Struktur Data</td>
+                        <td>2</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>IF201</td>
+                        <td>Sistem Basis Data</td>
+                        <td>3</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>IF202</td>
+                        <td>Pemrograman Web</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+        <fieldset>
+            <label>Anda paling suka dengan matkul apa</label>
+            <label for="PBO">
+                <input id="PBO" type="radio" class="inline" value="PBO" name="role">
+                PBO
+            </label>
+            <label for="Pemrograman WEB">
+                <input id="PemrogramanWEB" type="radio" class="inline" value="PemrogramanWEB" name="role">
+                Pemrograman Web
+            </label>
+            <label for="Strukdat">
+                <input id="Strukdat" type="radio" class="inline" value="Strukdat" name="role">
+                Strukdat
+            </label>
+            <label for="Dasprog">
+                <input id="Dasprog" type="radio" class="inline" value="Dasprog" name="role">
+                Dasprog
+            </label>
+            <label for="Matdis">
+                <input id="Matdis" type="radio" class="inline" value="Matdis" name="role">
+                Matdis
+            </label>
+        </fieldset>
+        <fieldset>
+            <label for="Laptop">Pilih Merek Laptop:</label>
+            <select id="dropdown1">
+                <option value="">(Pilih salah satu)</option>
+                <option value="1">ASUS</option>
+                <option value="2">MSI</option>
+                <option value="3">LENOVO</option>
+                <option value="4">ACER</option>
+                <option value="5">YAMAHA</option>
+                <option value="6">HONDA</option>
+            </select>
+        </fieldset>
+        <label for="deskripsi">Apa yang akan anda lakukan untuk mendapat nilai yang bagus?</label>
+        <textarea id="deskripsi" placeholder="Saya akan....."></textarea>
+        <input id="submit" type="submit" value="Submit">
+    </form>
+</body>
+</html>
