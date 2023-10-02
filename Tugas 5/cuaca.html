@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cuaca BMKG</title>
+    <!-- Add Bootstrap CSS link -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      #weather-container {
+        margin: 20px auto;
+        max-width: 400px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Informasi Cuaca BMKG</h1>
+    <div id="weather-container">
+      <h2>Cari Cuaca</h2>
+      <label for="location">Masukkan Nama Kota: </label>
+      <input type="text" id="location" placeholder="Kota..." />
+      <button onclick="getWeather()">Cari</button>
+      <div id="weather-info" class="mt-4"></div>
+    </div>
+
+    <!-- Add Bootstrap JS and Popper.js scripts at the end of the body -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+      function getWeather() {
+        const locationInput = document.getElementById("location");
+        const location = locationInput.value.trim();
+        const weatherInfo = document.getElementById("weather-info");
+
+        if (!location) {
+          alert("Silakan masukkan nama kota terlebih dahulu.");
+          return;
+        }
+
+        // Ganti URL ini dengan URL yang sesuai dengan file XML yang Anda unduh
+        const url = `https://data.bmkg.go.id/DataMKG/MEWS/DigitalForecast/DigitalForecast-JawaTengah.xml`;
+
+        fetch(url)
+          .then((response) => response.text()) // Menggunakan text() karena file XML
+          .then((data) => {
+            // Parsing data XML menjadi objek JavaScript
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(data, "text/xml");
+
+            // Cari data cuaca untuk Kudus dalam XML
+            const LokasiKota = Array.from(
+              xmlDoc.getElementsByTagName("area")
+            ).find((area) => area.getAttribute("description") === location);
+
+            function parseDateTime(dateTimeString) {
+              // dateTimeString format: "202310020000"
+              // You can parse this string into a readable date and time format
+              const year = dateTimeString.substr(0, 4);
+              const month = dateTimeString.substr(4, 2);
+              const day = dateTimeString.substr(6, 2);
+              const hour = dateTimeString.substr(8, 2);
+              const minute = dateTimeString.substr(10, 2);
+              const second = dateTimeString.substr(12, 2);
+
+              return `${year}-${month}-${day} ${hour}:${minute}:${second} (UTC)`;
+            }
+
+            if (LokasiKota) {
+              const humidity = LokasiKota.querySelector(
+                'parameter[id="hu"] value'
+              ).textContent;
+              const maxTemperature = LokasiKota.querySelector(
+                'parameter[id="tmax"] value[unit="C"]'
+              ).textContent;
+
+              // You should use LokasiKota.querySelector to get the time element
+              const timeElement = LokasiKota.querySelector(
+                'timerange[type="hourly"] value[unit="C"]'
+              );
+              const time = timeElement
+                ? parseDateTime(timeElement.parentNode.getAttribute("datetime"))
+                : "Data Waktu Tidak Tersedia";
+              // Menambahkan Bootstrap Card untuk menampilkan informasi cuaca
+              weatherInfo.innerHTML = `
+                  <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Informasi Cuaca untuk ${location}</h5>
+                  <p class="card-text">Kelembaban: ${humidity}%</p>
+                  <p class="card-text">Suhu Maksimum: ${maxTemperature}°C</p>
+                  <p class="card-text">Waktu: ${time}</p>
+                  <!-- Tambahkan Bootstrap Icons sesuai dengan jenis cuaca -->
+                  <i class="fas fa-sun"></i> <!-- Gunakan ikon cuaca sesuai -->
+                </div>
+              </div>
+            `;
+            } else {
+              weatherInfo.innerHTML =
+                "Data cuaca tidak ditemukan untuk kota ini.";
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+            weatherInfo.innerHTML =
+              "Terjadi kesalahan saat mengambil data cuaca.";
+          });
+      }
+    </script>
+    <!-- Add Font Awesome for weather icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </body>
+</html>
