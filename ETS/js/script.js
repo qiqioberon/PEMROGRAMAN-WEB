@@ -7,8 +7,6 @@ $.ajax({
         'format':1
     },
     success: function (result) {
-        console.log(result);
-        console.log(result);
         const rate=result.quotes;
             $.each(rate, function (i, t) {
                 $('isi').append(
