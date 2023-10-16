@@ -1,5 +1,5 @@
 $.ajax({
-    url: 'http://api.apilayer.com/live', // Perhatikan URL yang digunakan harus benar sesuai dengan API yang Anda tuju
+    url: 'http://api.apilayer.com/live', 
     dataType: 'json',
     type: 'get',
     data: {
